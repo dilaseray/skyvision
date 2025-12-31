@@ -26,7 +26,7 @@ Bu proje, görüntü işleme ve derin öğrenme tekniklerini kullanarak farklı 
 
 Model eğitimi sırasında **Validation Accuracy (Doğrulama Başarısı)** ve **Loss (Kayıp)** değerlerinin değişimi aşağıdaki grafikte gösterilmiştir. Model 10 epoch sonunda stabilize olmuş ve mükemmele yakın bir performans sergilemiştir.
 
-![Eğitim Sonuçları Grafiği](egitim_sonuclari_grafigi.png)
+![Eğitim Sonuçları Grafiği](grafik.jpg)
 
 * **Model:** `google/vit-base-patch16-224`
 * **En Yüksek Başarı (Accuracy):** %99.80
@@ -60,4 +60,5 @@ SkyVision-AI/
 ├── arayuz.py             # Streamlit Web Arayüzü Kodları
 ├── egitim_sonuclari_grafigi.png  # Performans Grafiği
 ├── requirements.txt      # Gerekli Python Kütüphaneleri
+
 └── README.md             # Proje Dokümantasyonu
