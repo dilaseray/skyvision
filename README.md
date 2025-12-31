@@ -1,4 +1,4 @@
-# ⛅ SkyVision AI - Gelişmiş Hava Durumu Tespit Sistemi
+# ⛅ SkyVision AI — Gelişmiş Hava Durumu Tespit Sistemi
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B)
@@ -6,48 +6,62 @@
 ![Model](https://img.shields.io/badge/Model-ViT--Base-yellow)
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 
-**SkyVision AI**, Google'ın **Vision Transformer (ViT)** mimarisini kullanarak fotoğraflardan hava durumu tahmini yapan, yüksek doğruluk oranına sahip bir derin öğrenme projesidir. Kullanıcı dostu web arayüzü sayesinde saniyeler içinde atmosfer analizi yapar.
+**SkyVision AI**, **Vision Transformer (ViT)** mimarisini kullanarak fotoğraflardan hava durumu tahmini yapan bir derin öğrenme projesidir. Streamlit arayüzü sayesinde görsel yükleyip saniyeler içinde sınıf tahmini ve olasılık dağılımını görebilirsin.
 
 ---
 
-## 🚀 Proje Hakkında
+## 🚀 Proje Özeti
 
-Bu proje, görüntü işleme ve derin öğrenme tekniklerini kullanarak farklı hava koşullarını sınıflandırmayı amaçlar. Geleneksel CNN (Convolutional Neural Networks) modelleri yerine, son teknoloji **Vision Transformer (ViT)** mimarisi kullanılarak `google/vit-base-patch16-224` modeli üzerinde transfer learning (fine-tuning) uygulanmıştır.
+Bu proje; görüntü işleme + derin öğrenme ile **hava durumu olaylarını sınıflandırmayı** hedefler. Geleneksel CNN yerine **Google ViT** tabanlı `google/vit-base-patch16-224` modeli üzerinde **transfer learning (fine-tuning)** yaklaşımı uygulanmıştır.
 
-### Öne Çıkan Özellikler
-* **⚡ Yüksek Doğruluk:** Eğitim sonucunda **%99.80** doğruluk (accuracy) oranına ulaşılmıştır.
-* **📊 Geniş Kapsam:** 11 farklı hava durumu olayını ayırt edebilir.
-* **📈 Görsel Analiz:** Streamlit arayüzü ile tahmin olasılıklarını grafiksel olarak sunar.
-* **☁️ Bulut Bilişim:** Model, yerel veya bulut tabanlı sistemlerde çalışmaya uygundur.
+### Öne Çıkanlar
+- **⚡ Yüksek doğruluk:** Eğitim çıktısında **%99.80 accuracy** raporlanmıştır.
+- **📊 11 sınıf:** Farklı hava durumu olaylarını ayırt eder.
+- **📈 Görsel çıktı:** Streamlit arayüzünde olasılıkları grafiksel sunar.
+- **☁️ Taşınabilir:** Yerel veya bulut ortamına uygundur.
 
 ---
 
-## 🧠 Model Performansı ve Eğitim Sonuçları
+## 🔗 Model ve Dataset
 
-Model eğitimi sırasında **Validation Accuracy (Doğrulama Başarısı)** ve **Loss (Kayıp)** değerlerinin değişimi aşağıdaki grafikte gösterilmiştir. Model 10 epoch sonunda stabilize olmuş ve mükemmele yakın bir performans sergilemiştir.
+### ✅ Eğitilmiş Model (indir)
+- Google Drive: **Eğitilmiş model linki**
+  - https://drive.google.com/file/d/1ovE_C4R-S2Y94OwEhprlEZ8QsQU1VmdT/view?usp=sharing
+
+> Model dosyalarını indirip proje içindeki `model_dila/` klasörüne yerleştirmen gerekir.
+
+### ✅ Dataset (kaynak)
+- Kaggle: **Weather Dataset**
+  - https://www.kaggle.com/datasets/jehanbhathena/weather-dataset
+
+---
+
+## 🧠 Model Performansı
+
+Eğitim boyunca **Validation Accuracy** ve **Loss** değişimi:
 
 ![Eğitim Sonuçları Grafiği](grafik.jpg)
 
-* **Model:** `google/vit-base-patch16-224`
-* **En Yüksek Başarı (Accuracy):** %99.80
-* **Epoch Sayısı:** 10
+- **Backbone:** `google/vit-base-patch16-224`
+- **En yüksek başarı (Accuracy):** %99.80
+- **Epoch:** 10
 
 ---
 
-## 🏷️ Tespit Edilen Sınıflar (Labels)
+## 🏷️ Sınıflar (Labels)
 
-Model, aşağıdaki 11 farklı hava durumu sınıfını tanıyacak şekilde eğitilmiştir:
+Model aşağıdaki 11 sınıfı tanıyacak şekilde eğitilmiştir:
 
-1.  **Dew** (Çiy)
-2.  **Fog/Smog** (Sis ve Duman)
-3.  **Frost** (Don)
-4.  **Glaze** (Buzlanma)
-5.  **Hail** (Dolu)
-6.  **Lightning** (Yıldırım)
-7.  **Rain** (Yağmur)
-8.  **Rainbow** (Gökkuşağı)
-9.  **Rime** (Kırağı)
-10. **Sandstorm** (Kum Fırtınası)
+1. **Dew** (Çiy)  
+2. **Fog/Smog** (Sis/Duman)  
+3. **Frost** (Don)  
+4. **Glaze** (Buzlanma)  
+5. **Hail** (Dolu)  
+6. **Lightning** (Yıldırım)  
+7. **Rain** (Yağmur)  
+8. **Rainbow** (Gökkuşağı)  
+9. **Rime** (Kırağı)  
+10. **Sandstorm** (Kum Fırtınası)  
 11. **Snow** (Kar)
 
 ---
@@ -56,9 +70,8 @@ Model, aşağıdaki 11 farklı hava durumu sınıfını tanıyacak şekilde eği
 
 ```text
 SkyVision-AI/
-├── model_dila/           # Eğitilmiş Model Dosyaları (config.json, model.safetensors vb.)
-├── arayuz.py             # Streamlit Web Arayüzü Kodları
-├── egitim_sonuclari_grafigi.png  # Performans Grafiği
-├── requirements.txt      # Gerekli Python Kütüphaneleri
-
-└── README.md             # Proje Dokümantasyonu
+├── model_dila/                    # Eğitilmiş model dosyaları (config.json, model.safetensors vb.)
+├── arayuz.py                      # Streamlit web arayüzü
+├── egitim_sonuclari_grafigi.png   # Eğitim/performans grafiği
+├── requirements.txt               # Bağımlılıklar
+└── README.md
